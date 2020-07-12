@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>462801589489-pj15v7f8g63fl1umnpjtiui2e1qmrns4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.462801589489-pj15v7f8g63fl1umnpjtiui2e1qmrns4</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>462801589489-6lc2auq4l6nhtc2900b4spjascc8dd0b.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD42Re_QwK9rVjWU_lRtLXqzUcKuvaUDgw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>462801589489</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.axactstudios.petshopowner</string>
+	<key>PROJECT_ID</key>
+	<string>jwm-ecommerce</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jwm-ecommerce.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:462801589489:ios:c2b1edf20e1bd23c840550</string>
+	<key>DATABASE_URL</key>
+	<string>https://jwm-ecommerce.firebaseio.com</string>
+</dict>
+</plist>

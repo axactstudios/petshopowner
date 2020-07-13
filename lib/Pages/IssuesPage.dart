@@ -146,7 +146,7 @@ class _IssuesPageState extends State<IssuesPage> {
             itemBuilder: (BuildContext context, index) {
               var item = issueOrders[index];
               return Container(
-                height: height * 0.32,
+                height: height * 0.40,
                 margin: const EdgeInsets.all(7.0),
                 decoration: BoxDecoration(
                     color: Colors.black54,
@@ -226,6 +226,13 @@ class _IssuesPageState extends State<IssuesPage> {
                       SizedBox(
                         height: 20,
                       ),
+                      Container(
+                        height: height * 0.1,
+                        child: Text(
+                          'Issue Description: ${item.desc}',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                       Text(
                         'Issue Status is ${item.status}',
                         style: TextStyle(color: Colors.white),
@@ -239,7 +246,7 @@ class _IssuesPageState extends State<IssuesPage> {
                         style: TextStyle(color: Colors.white),
                       ),
                       SizedBox(
-                        height: height * 0.04,
+                        height: height * 0.02,
                       ),
                       InkWell(
                         onTap: () {

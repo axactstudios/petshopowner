@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
+import 'package:petshopowner/Classes/Constants.dart';
 import 'package:petshopowner/Pages/IssuesPage.dart';
 import 'package:petshopowner/Pages/PastOrders.dart';
 
@@ -57,7 +58,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: Row(
           children: <Widget>[
             NavigationRail(
-              backgroundColor: Colors.black87,
+              backgroundColor: kPrimaryColor,
               selectedIndex: _selectedIndex,
               onDestinationSelected: (int index) {
                 setState(() {
@@ -65,7 +66,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   if (_selectedIndex == 0) task = 'Register New Product';
                   if (_selectedIndex == 1) task = 'Update Product';
                   if (_selectedIndex == 2) task = 'Delete';
-                  if (_selectedIndex == 3) task = 'Orders';
+                  if (_selectedIndex == 3) task = 'Current Orders';
                   if (_selectedIndex == 4) task = 'Past Orders';
                   if (_selectedIndex == 5) task = 'Complaints';
                 });
@@ -85,7 +86,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ),
                   label: Text(
                     'New',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(fontFamily: 'Cabin', color: Colors.white),
                   ),
                 ),
                 NavigationRailDestination(
@@ -101,7 +102,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ),
                   label: Text(
                     'Update',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(fontFamily: 'Cabin', color: Colors.white),
                   ),
                 ),
                 NavigationRailDestination(
@@ -117,7 +118,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ),
                   label: Text(
                     'Delete',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(fontFamily: 'Cabin', color: Colors.white),
                   ),
                 ),
                 NavigationRailDestination(
@@ -134,7 +135,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   label: Text(
                     'Pending\nOrders',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(fontFamily: 'Cabin', color: Colors.white),
                   ),
                 ),
                 NavigationRailDestination(
@@ -151,7 +152,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   label: Text(
                     'Completed\nOrders',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(fontFamily: 'Cabin', color: Colors.white),
                   ),
                 ),
                 NavigationRailDestination(
@@ -183,23 +184,28 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 30,
-                          fontFamily: 'Roboto',
+                          fontFamily: 'Cabin',
+                          color: kPrimaryColor,
                         )),
                     Text("Owner Console",
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 30,
-                          fontFamily: 'Roboto',
+                          fontFamily: 'Cabin',
+                          color: kPrimaryColor,
                         )),
                     SizedBox(
                       height: 10,
                     ),
-                    Text(task,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w200,
-                          fontSize: 28,
-                          fontFamily: 'Roboto',
-                        )),
+                    Text(
+                      task,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                        fontSize: 28,
+                        fontFamily: 'Cabin',
+                        color: kPrimaryColor,
+                      ),
+                    ),
                     if (_selectedIndex == 0)
                       RegisterPet()
                     else if (_selectedIndex == 1)

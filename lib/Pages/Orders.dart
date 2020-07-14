@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:petshopowner/Classes/Constants.dart';
 import 'package:petshopowner/Classes/OrderItem.dart';
 
 import '../main.dart';
@@ -157,12 +158,8 @@ class _OrdersState extends State<Orders> {
     double height = MediaQuery.of(context).size.height;
     return Column(
       children: <Widget>[
-        Text(
-          'Current Orders',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
         Container(
-          height: (height) - 125 - 97,
+          height: (height) - 125 - 102,
           child: ListView.builder(
             shrinkWrap: true,
             itemCount: currOrders.length,
@@ -172,7 +169,7 @@ class _OrdersState extends State<Orders> {
                 height: height * 0.35,
                 margin: const EdgeInsets.all(7.0),
                 decoration: BoxDecoration(
-                    color: Colors.black54,
+                    color: kPrimaryColor.withOpacity(0.75),
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
@@ -186,19 +183,23 @@ class _OrdersState extends State<Orders> {
                     children: <Widget>[
                       Text(
                         'Date: ${item.dateTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Shipping Date: ${item.shippedTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Completed Date: ${item.completedTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Total Amount: ${item.orderAmount.toStringAsFixed(2)}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       SizedBox(
                         height: 4,
@@ -208,11 +209,13 @@ class _OrdersState extends State<Orders> {
                         children: <Widget>[
                           Text(
                             'Items ordered',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                fontFamily: 'Cabin', color: Colors.white),
                           ),
                           Text(
                             'Qty ordered',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                fontFamily: 'Cabin', color: Colors.white),
                           ),
                         ],
                       ),
@@ -233,13 +236,17 @@ class _OrdersState extends State<Orders> {
                                   Container(
                                     child: Text(
                                       item.itemsName[index],
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(
+                                          fontFamily: 'Cabin',
+                                          color: Colors.white),
                                     ),
                                   ),
                                   Container(
                                     child: Text(
                                       item.itemsQty[index].toString(),
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(
+                                          fontFamily: 'Cabin',
+                                          color: Colors.white),
                                     ),
                                   ),
                                 ],
@@ -251,15 +258,18 @@ class _OrdersState extends State<Orders> {
                       ),
                       Text(
                         'Order Status is Order ${item.status}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Customer\'s Phone No: ${item.phNo}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Customer Address: ${item.address}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       SizedBox(
                         height: 37,
@@ -289,13 +299,14 @@ class _OrdersState extends State<Orders> {
                           alignment: Alignment.center,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.black54,
+                            color: kPrimaryColor,
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               'Order shipped',
                               style: TextStyle(
+                                  fontFamily: 'Cabin',
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -329,7 +340,7 @@ class _OrdersState extends State<Orders> {
                           alignment: Alignment.center,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                              color: Colors.black54,
+                              color: kPrimaryColor,
                               borderRadius: BorderRadius.only(
                                   bottomRight: Radius.circular(10),
                                   bottomLeft: Radius.circular(10))),
@@ -338,6 +349,7 @@ class _OrdersState extends State<Orders> {
                             child: Text(
                               'Order completed',
                               style: TextStyle(
+                                  fontFamily: 'Cabin',
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),

@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:petshopowner/Classes/Constants.dart';
 import 'package:petshopowner/Classes/OrderItem.dart';
 
 import 'Orders.dart';
@@ -143,12 +144,8 @@ class _PastOrdersState extends State<PastOrders> {
     double height = MediaQuery.of(context).size.height;
     return Column(
       children: <Widget>[
-        Text(
-          'Past Orders',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
         Container(
-          height: (height) - 125 - 97,
+          height: (height) - 125 - 102,
           child: ListView.builder(
             itemCount: pastOrders.length,
             shrinkWrap: true,
@@ -157,7 +154,7 @@ class _PastOrdersState extends State<PastOrders> {
               return new Container(
                 margin: const EdgeInsets.all(15.0),
                 decoration: BoxDecoration(
-                    color: Colors.black54,
+                    color: kPrimaryColor.withOpacity(0.75),
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
@@ -169,21 +166,25 @@ class _PastOrdersState extends State<PastOrders> {
                     children: <Widget>[
                       Text(
                         'Date: ${item.dateTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Shipping Date: ${item.shippedTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                       Text(
                         'Completed Date: ${item.completedTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                       Text(
                         'Total Amount: ${item.orderAmount.toStringAsFixed(2)}',
                         style: TextStyle(
+                          fontFamily: 'Cabin',
                           fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -191,7 +192,8 @@ class _PastOrdersState extends State<PastOrders> {
                       ),
                       Text(
                         'Order Status is ${item.status}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       SizedBox(
                         height: 20,

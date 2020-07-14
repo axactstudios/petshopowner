@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:petshopowner/Classes/Constants.dart';
 
 class Delete extends StatefulWidget {
   Delete({Key key}) : super(key: key);
@@ -35,12 +36,15 @@ class _DeleteState extends State<Delete> {
             padding: EdgeInsets.all(20.0),
             child: DropdownButtonFormField(
               value: dropdownValue,
-              icon: Icon(Icons.arrow_downward),
+              icon: Icon(
+                Icons.arrow_downward,
+                color: kPrimaryColor,
+              ),
               decoration: InputDecoration(
                 labelText: "Select Category",
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: kPrimaryColor)),
               ),
               items: listOfCategories.map((String value) {
                 return new DropdownMenuItem<String>(
@@ -68,8 +72,8 @@ class _DeleteState extends State<Delete> {
               decoration: InputDecoration(
                 labelText: "Enter Product Name",
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: kPrimaryColor)),
               ),
               // The validator receives the text that the user has entered.
               validator: (value) {
@@ -84,9 +88,10 @@ class _DeleteState extends State<Delete> {
               padding: EdgeInsets.all(20.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    side: BorderSide(color: Colors.black)),
-                color: Colors.black87,
+                  borderRadius: BorderRadius.circular(8.0),
+                  side: BorderSide(color: kPrimaryColor),
+                ),
+                color: kPrimaryColor,
                 onPressed: () {
                   if (_formKey.currentState.validate())
                     dbRef
@@ -104,7 +109,7 @@ class _DeleteState extends State<Delete> {
                 },
                 child: Text(
                   'Delete',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(fontFamily: 'Cabin', color: Colors.white),
                 ),
               )),
         ])));

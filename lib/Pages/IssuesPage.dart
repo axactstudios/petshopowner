@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:petshopowner/Classes/Constants.dart';
 import 'package:petshopowner/Classes/Issues.dart';
 
 import '../main.dart';
@@ -134,10 +135,6 @@ class _IssuesPageState extends State<IssuesPage> {
     double height = MediaQuery.of(context).size.height;
     return Column(
       children: <Widget>[
-        Text(
-          'Complaints',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
         Container(
           height: (height) - 125 - 97,
           child: ListView.builder(
@@ -149,7 +146,7 @@ class _IssuesPageState extends State<IssuesPage> {
                 height: height * 0.40,
                 margin: const EdgeInsets.all(7.0),
                 decoration: BoxDecoration(
-                    color: Colors.black54,
+                    color: kPrimaryColor.withOpacity(0.75),
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
@@ -163,19 +160,23 @@ class _IssuesPageState extends State<IssuesPage> {
                     children: <Widget>[
                       Text(
                         'Date: ${item.placedTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Completion Date: ${item.completedTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Completed Date: ${item.completedTime}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Total Amount: ${item.orderAmount}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       SizedBox(
                         height: 4,
@@ -185,11 +186,13 @@ class _IssuesPageState extends State<IssuesPage> {
                         children: <Widget>[
                           Text(
                             'Items ordered',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                fontFamily: 'Cabin', color: Colors.white),
                           ),
                           Text(
                             'Qty ordered',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                fontFamily: 'Cabin', color: Colors.white),
                           ),
                         ],
                       ),
@@ -210,13 +213,17 @@ class _IssuesPageState extends State<IssuesPage> {
                                   Container(
                                     child: Text(
                                       item.itemsName[index],
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(
+                                          fontFamily: 'Cabin',
+                                          color: Colors.white),
                                     ),
                                   ),
                                   Container(
                                     child: Text(
                                       item.itemsQty[index].toString(),
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(
+                                          fontFamily: 'Cabin',
+                                          color: Colors.white),
                                     ),
                                   ),
                                 ],
@@ -230,20 +237,24 @@ class _IssuesPageState extends State<IssuesPage> {
                         height: height * 0.1,
                         child: Text(
                           'Issue Description: ${item.desc}',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              fontFamily: 'Cabin', color: Colors.white),
                         ),
                       ),
                       Text(
                         'Issue Status is ${item.status}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Customer\'s Phone No: ${item.phNo}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       Text(
                         'Customer Address: ${item.address}',
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(fontFamily: 'Cabin', color: Colors.white),
                       ),
                       SizedBox(
                         height: height * 0.02,
@@ -270,7 +281,7 @@ class _IssuesPageState extends State<IssuesPage> {
                           alignment: Alignment.center,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                              color: Colors.black54,
+                              color: kPrimaryColor,
                               borderRadius: BorderRadius.only(
                                   bottomRight: Radius.circular(10),
                                   bottomLeft: Radius.circular(10))),
@@ -279,6 +290,7 @@ class _IssuesPageState extends State<IssuesPage> {
                             child: Text(
                               'Issue solved',
                               style: TextStyle(
+                                  fontFamily: 'Cabin',
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),

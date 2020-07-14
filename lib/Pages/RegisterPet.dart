@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path/path.dart' as p;
+import 'package:petshopowner/Classes/Constants.dart';
 
 import '../main.dart';
 
@@ -142,6 +143,7 @@ class _RegisterPetState extends State<RegisterPet> {
                 labelText: "Enter Product Name",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(color: kPrimaryColor),
                 ),
               ),
               // The validator receives the text that the user has entered.
@@ -157,17 +159,25 @@ class _RegisterPetState extends State<RegisterPet> {
             padding: EdgeInsets.all(20.0),
             child: DropdownButtonFormField(
               value: dropdownValue,
-              icon: Icon(Icons.arrow_downward),
+              icon: Icon(
+                Icons.arrow_downward,
+                color: kPrimaryColor,
+              ),
               decoration: InputDecoration(
                 labelText: "Select Category",
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: kPrimaryColor)),
               ),
               items: listOfCategories.map((String value) {
                 return new DropdownMenuItem<String>(
                   value: value,
-                  child: new Text(value),
+                  child: new Text(
+                    value,
+                    style: TextStyle(
+                      fontFamily: 'Cabin',
+                    ),
+                  ),
                 );
               }).toList(),
               onChanged: (String newValue) {
@@ -191,8 +201,8 @@ class _RegisterPetState extends State<RegisterPet> {
               decoration: InputDecoration(
                 labelText: "Enter product price",
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: kPrimaryColor)),
               ),
               // The validator receives the text that the user has entered.
               validator: (value) {
@@ -211,8 +221,8 @@ class _RegisterPetState extends State<RegisterPet> {
               decoration: InputDecoration(
                 labelText: "Enter quantity",
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: kPrimaryColor)),
               ),
               // The validator receives the text that the user has entered.
               validator: (value) {
@@ -231,14 +241,15 @@ class _RegisterPetState extends State<RegisterPet> {
                   RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                        side: BorderSide(color: Colors.black)),
-                    color: Colors.black87,
+                        side: BorderSide(color: kPrimaryColor)),
+                    color: kPrimaryColor,
                     onPressed: () {
                       filePicker(context);
                     },
                     child: Text(
                       'Upload Image',
-                      style: TextStyle(color: Colors.white),
+                      style:
+                          TextStyle(fontFamily: 'Cabin', color: Colors.white),
                     ),
                   ),
                 ],
@@ -248,8 +259,8 @@ class _RegisterPetState extends State<RegisterPet> {
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    side: BorderSide(color: Colors.black)),
-                color: Colors.black87,
+                    side: BorderSide(color: kPrimaryColor)),
+                color: kPrimaryColor,
                 onPressed: () {
                   int price1 = int.parse(ageController.text);
                   if (_formKey.currentState.validate()) {
@@ -272,7 +283,7 @@ class _RegisterPetState extends State<RegisterPet> {
                 },
                 child: Text(
                   'Submit',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(fontFamily: 'Cabin', color: Colors.white),
                 ),
               )),
         ])));

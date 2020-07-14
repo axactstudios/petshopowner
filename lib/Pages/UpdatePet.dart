@@ -7,6 +7,7 @@ import 'dart:io';
 import 'package:path/path.dart' as p;
 
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:petshopowner/Classes/Constants.dart';
 
 class UpdatePet extends StatefulWidget {
   UpdatePet({Key key}) : super(key: key);
@@ -130,105 +131,138 @@ class _UpdatePetState extends State<UpdatePet> {
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-            child: Column(children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: TextFormField(
-              controller: nameController,
-              decoration: InputDecoration(
-                labelText: "Enter Product Name",
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+      key: _formKey,
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: TextFormField(
+                controller: nameController,
+                decoration: InputDecoration(
+                  labelText: "Enter Product Name",
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: kPrimaryColor)),
                 ),
+                // The validator receives the text that the user has entered.
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Enter Product Name';
+                  }
+                  return null;
+                },
               ),
-              // The validator receives the text that the user has entered.
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Enter Product Name';
-                }
-                return null;
-              },
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: DropdownButtonFormField(
-              value: dropdownValue,
-              icon: Icon(Icons.arrow_downward),
-              decoration: InputDecoration(
-                labelText: "Select Category",
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: DropdownButtonFormField(
+                value: dropdownValue,
+                icon: Icon(
+                  Icons.arrow_downward,
+                  color: kPrimaryColor,
                 ),
-              ),
-              items: listOfCategories.map((String value) {
-                return new DropdownMenuItem<String>(
-                  value: value,
-                  child: new Text(value),
-                );
-              }).toList(),
-              onChanged: (String newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                });
-              },
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please Select Category';
-                }
-                return null;
-              },
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: TextFormField(
-              keyboardType: TextInputType.number,
-              controller: ageController,
-              decoration: InputDecoration(
-                labelText: "Enter product price",
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+                decoration: InputDecoration(
+                  labelText: "Select Category",
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: kPrimaryColor)),
                 ),
+                items: listOfCategories.map((String value) {
+                  return new DropdownMenuItem<String>(
+                    value: value,
+                    child: new Text(
+                      value,
+                      style: TextStyle(
+                        fontFamily: 'Cabin',
+                      ),
+                    ),
+                  );
+                }).toList(),
+                onChanged: (String newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                  });
+                },
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please Select Category';
+                  }
+                  return null;
+                },
               ),
-              // The validator receives the text that the user has entered.
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter product price';
-                }
-                return null;
-              },
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: TextFormField(
-              keyboardType: TextInputType.number,
-              controller: quantity,
-              decoration: InputDecoration(
-                labelText: "Enter quantity",
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                controller: ageController,
+                decoration: InputDecoration(
+                  labelText: "Enter product price",
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: kPrimaryColor)),
                 ),
+                // The validator receives the text that the user has entered.
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter product price';
+                  }
+                  return null;
+                },
               ),
-              // The validator receives the text that the user has entered.
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter quantity';
-                }
-                return null;
-              },
             ),
-          ),
-          Padding(
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                controller: quantity,
+                decoration: InputDecoration(
+                  labelText: "Enter quantity",
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: kPrimaryColor)),
+                ),
+                // The validator receives the text that the user has entered.
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter quantity';
+                  }
+                  return null;
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  RaisedButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      side: BorderSide(color: kPrimaryColor),
+                    ),
+                    color: kPrimaryColor,
+                    onPressed: () {
+                      filePicker(context);
+                    },
+                    child: Text(
+                      'Upload Image',
+                      style:
+                          TextStyle(fontFamily: 'Cabin', color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
               padding: EdgeInsets.all(20.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    side: BorderSide(color: Colors.black)),
-                color: Colors.black87,
+                  borderRadius: BorderRadius.circular(8.0),
+                  side: BorderSide(color: kPrimaryColor),
+                ),
+                color: kPrimaryColor,
                 onPressed: () {
                   int price1 = int.parse(ageController.text);
                   if (_formKey.currentState.validate()) {
@@ -254,30 +288,14 @@ class _UpdatePetState extends State<UpdatePet> {
                 },
                 child: Text(
                   'Submit',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(fontFamily: 'Cabin', color: Colors.white),
                 ),
-              )),
-          Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        side: BorderSide(color: Colors.black)),
-                    color: Colors.black87,
-                    onPressed: () {
-                      filePicker(context);
-                    },
-                    child: Text(
-                      'Upload Image',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
-              )),
-        ])));
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
